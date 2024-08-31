@@ -5,5 +5,7 @@
 lib.makeScope newScope (
   self: let
     inherit (self) callPackage;
-  in {}
+  in {
+    noobkitPPC = callPackage ./tools/noobkitPPC {};
+  }
 )
