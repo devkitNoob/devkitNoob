@@ -1,5 +1,7 @@
 # devkitNoob
 
+A nixpkgs overlay for homebrew development.
+
 ## Acknowledgements
 
 This project is dedicated to leeches who enjoy the work of the free software
