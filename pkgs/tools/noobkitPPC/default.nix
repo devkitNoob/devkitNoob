@@ -1,9 +1,11 @@
+# References:
+# - https://gcc.gnu.org/install/index.html
+# - https://github.com/richfelker/musl-cross-make/blob/master/litecross/Makefile
 {
   lib,
   stdenv,
   fetchurl,
   fetchFromGitHub,
-  texinfo,
   gmp,
   mpfr,
   libmpc,
@@ -68,10 +70,6 @@ in
       runHook postPatch
     '';
 
-    nativeBuildInputs = [
-      texinfo
-    ];
-
     buildInputs = [
       gmp
       mpfr
@@ -130,48 +128,57 @@ in
     ];
 
     enableParallelBuilding = true;
+    hardeningDisable = ["format"];
 
     buildPhase = ''
-      prependToVar configureFlags "--prefix=$prefix"
-      local makeFlags=(
-        ''${enableParallelBuilding:+-j''${NIX_BUILD_CORES}}
-      )
-
       mkdir -p build
       cd build
 
       runHook preBuild
 
-      mkdir -p sysroot
-      local sysroot="$PWD/sysroot"
+      prependToVar configureFlags "--prefix=$prefix"
+      local makeFlags=(
+        MAKEINFO=true
+        ''${enableParallelBuilding:+-j''${NIX_BUILD_CORES}}
+      )
+      export PATH="$prefix/bin:$PATH"
 
       mkdir -p binutils
       pushd binutils
       '../../binutils-${sources.binutils.version}/configure' \
         "''${configureFlags[@]}" "''${configureFlagsBinutils[@]}"
       make "''${makeFlags[@]}"
+      make "''${makeFlags[@]}" install
+      popd
+
+      mkdir -p gcc
+      pushd gcc
+      '../../gcc-${sources.gcc.version}/configure' \
+        "''${configureFlags[@]}" "''${configureFlagsGcc[@]}"
+      make "''${makeFlags[@]}" all-gcc
+      make "''${makeFlags[@]}" install-gcc
+      popd
+
+      mkdir -p newlib
+      pushd newlib
+      '../../newlib-${sources.newlib.version}/configure' \
+        "''${configureFlags[@]}" "''${configureFlagsNewlib[@]}"
+      make "''${makeFlags[@]}"
+      make "''${makeFlags[@]}" -j1 install
+      popd
+
+      pushd gcc
+      make "''${makeFlags[@]}"
+      make "''${makeFlags[@]}" install
       popd
 
       runHook postBuild
     '';
 
-    enableParallelInstalling = false;
-
-    installPhase = ''
-      runHook preInstall
-
-      local makeFlags=(
-        ''${enableParallelInstalling:+-j''${NIX_BUILD_CORES}}
-      )
-
-      mkdir -p "$prefix"
-      (cd binutils; make install "''${makeFlags[@]")
-
-      runHook postInstall
-    '';
+    dontInstall = true;
 
     meta = {
-      description = "Toolchain for Nintendo Gamecube & Wii homebrew development";
+      description = "Toolchain for Nintendo GameCube & Wii homebrew development";
       homepage = "https://github.com/devkitNoob/devkitNoob";
       license = [
         # Binutils and GCC
