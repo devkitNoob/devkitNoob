@@ -14,10 +14,12 @@
         fn {
           pkgs = inputs.nixpkgs.legacyPackages.${system};
         });
-  in {
+  in rec {
     formatter = forAllSystems ({pkgs, ...}: pkgs.alejandra);
 
     packages = forAllSystems ({pkgs, ...}: (pkgs.callPackage ./pkgs {}));
+
+    hydraJobs = packages;
 
     overlays.default = import ./overlay.nix;
   };
