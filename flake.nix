@@ -17,9 +17,9 @@
   in rec {
     formatter = forAllSystems ({pkgs, ...}: pkgs.alejandra);
 
-    packages = forAllSystems ({pkgs, ...}: (pkgs.callPackage ./pkgs {}));
+    legacyPackages = forAllSystems ({pkgs, ...}: (pkgs.callPackage ./pkgs {}));
 
-    hydraJobs = packages;
+    hydraJobs = legacyPackages;
 
     overlays.default = import ./overlay.nix;
   };
