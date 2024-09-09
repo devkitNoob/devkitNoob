@@ -19,7 +19,14 @@
 
     legacyPackages = forAllSystems ({pkgs, ...}: (pkgs.callPackage ./pkgs {}));
 
-    hydraJobs = legacyPackages;
+    hydraJobs = {
+      inherit
+        (legacyPackages)
+        x86_64-linux
+        aarch64-linux
+        ;
+      # FIXME Darwin builders pls 🥺
+    };
 
     overlays.default = import ./overlay.nix;
   };
