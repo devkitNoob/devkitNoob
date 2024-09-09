@@ -10,6 +10,7 @@ lib.makeScope newScope (
       (callPackage ./toolchains {})
       noobkitARM
       noobkitPPC
+      noobkitA64
       ;
   }
 )
