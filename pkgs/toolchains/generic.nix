@@ -17,6 +17,7 @@
   mpfr,
   libmpc,
   isl,
+  zlib,
   zstd,
 }:
 stdenv.mkDerivation (finalAttrs: {
@@ -47,7 +48,7 @@ stdenv.mkDerivation (finalAttrs: {
   sourceRoot = ".";
 
   nativeBuildInputs = [texinfo perl];
-  buildInputs = [gmp mpfr libmpc isl zstd];
+  buildInputs = [gmp mpfr libmpc isl zlib zstd];
 
   hardeningDisable = ["format"];
   env = {

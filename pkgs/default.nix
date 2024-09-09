@@ -8,6 +8,7 @@ lib.makeScope newScope (
   in {
     inherit
       (callPackage ./toolchains {})
+      noobkitARM
       noobkitPPC
       ;
   }

@@ -14,7 +14,9 @@ export PATH="$prefix/bin:$PATH"
 
 MAKE="make"
 export MAKEFLAGS="-j$NIX_BUILD_CORES"
-: "${cppflags=}" "${CPPFLAGS=}" "${ldflags=}"
+: "${cppflags=}" "${CPPFLAGS=}" "${ldflags=}" "${LDFLAGS=}"
+OLD_CC="$CC"
+OLD_CXX="$CXX"
 CROSS_GCC_PARAMS=""
 CROSS_PARAMS=""
 EXTRA_GCC_PARAMS=(
