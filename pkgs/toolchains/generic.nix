@@ -7,6 +7,7 @@
   variant,
   archName,
 }: {
+  dkn,
   lib,
   stdenv,
   fetchurl,
@@ -81,7 +82,7 @@ stdenv.mkDerivation (finalAttrs: {
       # Newlib
       lib.licenses.gpl2Plus
     ];
-    # TODO maintainers = [ lib.maintainers.novenary ];
+    maintainers = [dkn.maintainers.novenary];
     platforms = lib.platforms.unix;
   };
 })
