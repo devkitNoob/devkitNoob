@@ -17,6 +17,7 @@ lib.makeScope newScope (
       noobkitA64
       ;
 
+    gamecube-tools = callPackage ./tools/gamecube-tools {};
     general-tools = callPackage ./tools/general-tools {};
   }
 )
