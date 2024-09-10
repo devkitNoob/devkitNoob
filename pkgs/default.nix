@@ -12,5 +12,7 @@ lib.makeScope newScope (
       noobkitPPC
       noobkitA64
       ;
+
+    general-tools = callPackage ./tools/general-tools {};
   }
 )
