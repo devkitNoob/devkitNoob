@@ -19,13 +19,25 @@
 
     legacyPackages = forAllSystems ({pkgs, ...}: (pkgs.callPackage ./pkgs {}));
 
-    hydraJobs = {
-      inherit
-        (legacyPackages)
-        x86_64-linux
-        aarch64-linux
-        ;
-      # FIXME Darwin builders pls 🥺
+    hydraJobs = let
+      packages = {
+        inherit
+          (legacyPackages)
+          x86_64-linux
+          aarch64-linux
+          ;
+        # FIXME Darwin builders pls 🥺
+      };
+      getDerivations = attrs: let
+        sets = lib.filterAttrs (k: v: lib.isAttrs v) attrs;
+      in
+        builtins.mapAttrs (k: v:
+          if lib.isDerivation v
+          then v
+          else getDerivations v)
+        sets;
+    in {
+      packages = getDerivations packages;
     };
 
     overlays.default = import ./overlay.nix;
