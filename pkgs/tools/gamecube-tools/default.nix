@@ -8,7 +8,7 @@
   libGL,
 }:
 stdenv.mkDerivation (finalAttrs: {
-  version = "unstable-2024-09-11";
+  version = "1.0.6-unstable-2024-09-11";
   pname = "gamecube-tools";
 
   nativeBuildInputs = [autoreconfHook];
