@@ -7,7 +7,7 @@ lib.makeScope newScope (
     inherit (self) callPackage;
     mkToolchain = args: callPackage (import ./generic.nix args) {};
   in {
-    noobkitARM = mkToolchain rec {
+    noobkitARM-unwrapped = mkToolchain rec {
       pname = "noobkitARM";
       version = "65";
       srcs = {
@@ -30,6 +30,10 @@ lib.makeScope newScope (
       };
       variant = 1;
       archName = "ARM";
+    };
+
+    noobkitARM = callPackage ./wrapper.nix {
+      unwrapped = self.noobkitARM-unwrapped;
     };
 
     noobkitPPC = mkToolchain rec {
