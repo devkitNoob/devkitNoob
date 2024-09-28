@@ -10,8 +10,9 @@ lib.makeScope newScope (
       maintainers = import ./maintainer-list.nix;
     };
 
+    toolchains = callPackage ./toolchains {};
     inherit
-      (callPackage ./toolchains {})
+      (self.toolchains)
       noobkitARM
       noobkitPPC
       noobkitA64
