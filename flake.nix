@@ -17,10 +17,10 @@
   in rec {
     formatter = forAllSystems ({pkgs, ...}: pkgs.alejandra);
 
-    legacyPackages = forAllSystems ({pkgs, ...}: (pkgs.callPackage ./pkgs {}));
+    legacyPackages = forAllSystems ({pkgs, ...}: lib.recurseIntoAttrs (pkgs.callPackage ./pkgs {}));
 
     hydraJobs = let
-      packages = {
+      packages = lib.recurseIntoAttrs {
         inherit
           (legacyPackages)
           x86_64-linux
@@ -29,7 +29,7 @@
         # FIXME Darwin builders pls 🥺
       };
       getDerivations = attrs: let
-        sets = lib.filterAttrs (k: v: lib.isAttrs v) attrs;
+        sets = lib.filterAttrs (k: v: lib.isDerivation v || (lib.isAttrs v && v.recurseForDerivations or false)) attrs;
       in
         builtins.mapAttrs (k: v:
           if lib.isDerivation v
