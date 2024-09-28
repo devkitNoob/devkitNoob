@@ -66,8 +66,15 @@ stdenv.mkDerivation (finalAttrs: {
   '';
   buildPhase = ''
     runHook preBuild
+
     export DKN_PREFIX="$prefix"
     '${stdenv.shell}' '${./build.sh}'
+
+    # Remove dead weight to (slightly) reduce closure size
+    rm -f $out/bin/*embedspu
+    rm -rf $out/libexec/gcc/*/*/install-tools
+    rm -rf $out/lib/gcc/*/*/install-tools
+
     runHook postBuild
   '';
   dontInstall = true;
