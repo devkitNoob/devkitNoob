@@ -6,6 +6,7 @@
   };
 
   outputs = inputs: let
+    inherit (inputs) self;
     inherit (inputs.nixpkgs) lib;
 
     systems = lib.systems.flakeExposed;
@@ -14,7 +15,7 @@
         fn {
           pkgs = inputs.nixpkgs.legacyPackages.${system};
         });
-  in rec {
+  in {
     formatter = forAllSystems ({pkgs, ...}: pkgs.alejandra);
 
     legacyPackages = forAllSystems ({pkgs, ...}: lib.recurseIntoAttrs (pkgs.callPackage ./pkgs {}));
@@ -22,7 +23,7 @@
     hydraJobs = let
       packages = lib.recurseIntoAttrs {
         inherit
-          (legacyPackages)
+          (self.legacyPackages)
           x86_64-linux
           aarch64-linux
           ;
