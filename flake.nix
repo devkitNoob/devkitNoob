@@ -18,12 +18,20 @@
       recurseIntoAttrs
       ;
 
-    systems = lib.systems.flakeExposed;
     forAllSystems = fn:
       genAttrs systems (system:
         fn {
           pkgs = inputs.nixpkgs.legacyPackages.${system};
         });
+    systems = lib.systems.flakeExposed;
+    getDerivations = attrs: let
+      sets = filterAttrs (k: v: isDerivation v || (isAttrs v && v.recurseForDerivations or false)) attrs;
+    in
+      mapAttrs (k: v:
+        if isDerivation v
+        then v
+        else getDerivations v)
+      sets;
   in {
     formatter = forAllSystems ({pkgs, ...}: pkgs.alejandra);
 
@@ -38,14 +46,6 @@
           ;
         # FIXME Darwin builders pls 🥺
       };
-      getDerivations = attrs: let
-        sets = filterAttrs (k: v: isDerivation v || (isAttrs v && v.recurseForDerivations or false)) attrs;
-      in
-        mapAttrs (k: v:
-          if isDerivation v
-          then v
-          else getDerivations v)
-        sets;
     in {
       packages = getDerivations packages;
     };
