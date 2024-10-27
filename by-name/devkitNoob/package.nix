@@ -6,10 +6,6 @@ lib.makeScope newScope (
   self: let
     inherit (self) callPackage;
   in {
-    dkn = {
-      maintainers = import ../../pkgs/maintainer-list.nix;
-    };
-
     inherit
       (callPackage ../../pkgs/toolchains {})
       noobkitARM
