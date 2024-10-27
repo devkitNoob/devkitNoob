@@ -8,20 +8,29 @@
   outputs = inputs: let
     inherit (inputs) self;
     inherit (inputs.nixpkgs) lib;
+    inherit
+      (lib)
+      filterAttrs
+      genAttrs
+      isAttrs
+      isDerivation
+      mapAttrs
+      recurseIntoAttrs
+      ;
 
     systems = lib.systems.flakeExposed;
     forAllSystems = fn:
-      lib.genAttrs systems (system:
+      genAttrs systems (system:
         fn {
           pkgs = inputs.nixpkgs.legacyPackages.${system};
         });
   in {
     formatter = forAllSystems ({pkgs, ...}: pkgs.alejandra);
 
-    legacyPackages = forAllSystems ({pkgs, ...}: lib.recurseIntoAttrs (pkgs.callPackage ./pkgs {}));
+    legacyPackages = forAllSystems ({pkgs, ...}: recurseIntoAttrs (pkgs.callPackage ./pkgs {}));
 
     hydraJobs = let
-      packages = lib.recurseIntoAttrs {
+      packages = recurseIntoAttrs {
         inherit
           (self.legacyPackages)
           x86_64-linux
@@ -30,10 +39,10 @@
         # FIXME Darwin builders pls 🥺
       };
       getDerivations = attrs: let
-        sets = lib.filterAttrs (k: v: lib.isDerivation v || (lib.isAttrs v && v.recurseForDerivations or false)) attrs;
+        sets = filterAttrs (k: v: isDerivation v || (isAttrs v && v.recurseForDerivations or false)) attrs;
       in
-        builtins.mapAttrs (k: v:
-          if lib.isDerivation v
+        mapAttrs (k: v:
+          if isDerivation v
           then v
           else getDerivations v)
         sets;
