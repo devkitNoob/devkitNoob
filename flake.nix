@@ -10,6 +10,7 @@
     inherit (inputs.nixpkgs) lib;
     inherit
       (lib)
+      dontRecurseIntoAttrs
       filterAttrs
       genAttrs
       isAttrs
@@ -18,11 +19,7 @@
       recurseIntoAttrs
       ;
 
-    forAllSystems = fn:
-      genAttrs systems (system:
-        fn {
-          pkgs = inputs.nixpkgs.legacyPackages.${system};
-        });
+    forAllSystems = genAttrs systems;
     systems = lib.systems.flakeExposed;
     getDerivations = attrs: let
       sets = filterAttrs (k: v: isDerivation v || (isAttrs v && v.recurseForDerivations or false)) attrs;
@@ -33,9 +30,21 @@
         else getDerivations v)
       sets;
   in {
-    formatter = forAllSystems ({pkgs, ...}: pkgs.alejandra);
+    formatter = forAllSystems (system: let
+      legacyPackages' = self.legacyPackages.${system};
+      inherit (legacyPackages') nixpkgs;
+    in
+      nixpkgs.alejandra);
 
-    legacyPackages = forAllSystems ({pkgs, ...}: recurseIntoAttrs (pkgs.callPackage ./pkgs {}));
+    legacyPackages = forAllSystems (system: let
+      nixpkgs = dontRecurseIntoAttrs (import inputs.nixpkgs {
+        inherit system;
+        overlays = [
+          self.overlays.default
+        ];
+      });
+    in
+      {inherit nixpkgs;} // nixpkgs.devkitNoob);
 
     hydraJobs = let
       packages = recurseIntoAttrs {
