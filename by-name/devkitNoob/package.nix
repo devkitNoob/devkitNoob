@@ -14,6 +14,6 @@ lib.makeScope newScope (
       ;
 
     gamecube-tools = callPackage ../gamecube-tools/devkitNoob-package.nix {};
-    general-tools = callPackage ../../pkgs/tools/general-tools {};
+    general-tools = callPackage ../general-tools/devkitNoob-package.nix {};
   }
 )
