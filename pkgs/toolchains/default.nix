@@ -31,19 +31,19 @@ in {
 
   noobkitPPC = mkToolchain rec {
     pname = "noobkitPPC";
-    version = "45.2";
+    version = "46";
     srcs = {
       buildscripts = {
         rev = "devkitPPC_r${version}";
-        hash = "sha256-n5voe1Gc4p7Xn9kO4pfI26aeSQFneyZypnCSYMcO2gw=";
+        hash = "sha256-il/uIFgeGbQvJhO1Re3xHDJvIxl0RWMVAjv5+/vRb9E=";
       };
       binutils = {
-        version = "2.42";
-        hash = "sha256-qlSFDr2lBkxyzU7C2bBWwpQlKZFIY1DZqXqypt/frxI=";
+        version = "2.43.1";
+        hash = "sha256-vsqsXSleA3WHtjpC+tV/49nXuD9HjrJLZ/nuxdDxhy8=";
       };
       gcc = {
-        version = "13.2.0";
-        hash = "sha256-4nXnZEKmBnNBon8Exca4PYYTFEAEwEE1KIY9xrXHQ9o=";
+        version = "14.2.0";
+        hash = "sha256-p7Obxpy/niWCbFpgqyZHcAH3wI2FzsBLwOKcq+1vPMk=";
       };
       newlib = {
         version = "4.4.0.20231231";
