@@ -31,11 +31,11 @@ in {
 
   noobkitPPC = mkToolchain rec {
     pname = "noobkitPPC";
-    version = "46";
+    version = "46.1";
     srcs = {
       buildscripts = {
         rev = "devkitPPC_r${version}";
-        hash = "sha256-il/uIFgeGbQvJhO1Re3xHDJvIxl0RWMVAjv5+/vRb9E=";
+        hash = "sha256-ay83P7EtR/25MFu19EyY4ohtEHzFmvmMRF50uJQPgJ8=";
       };
       binutils = {
         version = "2.43.1";
