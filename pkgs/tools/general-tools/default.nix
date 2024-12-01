@@ -1,5 +1,4 @@
 {
-  dkn,
   lib,
   stdenv,
   fetchFromGitHub,
@@ -28,7 +27,7 @@ stdenv.mkDerivation (finalAttrs: {
       lib.licenses.mit # bin2s.c
       lib.licenses.gpl3 # COPYING
     ];
-    maintainers = [dkn.maintainers.novenary];
+    maintainers = [lib.maintainers.novenary];
     platforms = lib.platforms.unix;
   };
 })

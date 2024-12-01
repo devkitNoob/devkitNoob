@@ -59,6 +59,6 @@
       packages = getDerivations packages;
     };
 
-    overlays.default = import ./overlay.nix;
+    overlays.default = import ./by-name/default/overlay.nix;
   };
 }

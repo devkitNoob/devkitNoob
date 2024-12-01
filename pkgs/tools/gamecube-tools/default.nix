@@ -1,5 +1,4 @@
 {
-  dkn,
   lib,
   stdenv,
   fetchFromGitHub,
@@ -36,6 +35,6 @@ stdenv.mkDerivation (finalAttrs: {
     description = " Tools for GameCube and Wii projects";
     homepage = "https://github.com/extremscorner/gamecube-tools";
     license = lib.licenses.gpl2;
-    maintainers = [dkn.maintainers.novenary];
+    maintainers = [lib.maintainers.novenary];
   };
 })
