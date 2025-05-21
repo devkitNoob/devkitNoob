@@ -8,7 +8,7 @@
   libGL,
 }:
 stdenv.mkDerivation (finalAttrs: {
-  version = "1.0.6-unstable-2024-09-11";
+  version = "0-unstable-2025-05-13";
   pname = "gamecube-tools";
 
   nativeBuildInputs = [autoreconfHook];
@@ -28,8 +28,8 @@ stdenv.mkDerivation (finalAttrs: {
     owner = "extremscorner";
     repo = "gamecube-tools";
     #rev = "v${finalAttrs.version}";
-    rev = "4a331730e645540bd0c3e6ec284dbc4753acbba4";
-    hash = "sha256-LgR1fDcb7KV1fKHtso3Zokr9TJ6gSV9xT/1voCA2xnk=";
+    rev = "fe67d8bf6e8c2c7f447accf94612767d55122532";
+    hash = "sha256-n7w0o0E6VCDqohkAS7obDkTIQG7TpiinpJsktuLU9H4=";
   };
 
   meta = {
