@@ -18,7 +18,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "devkitpro";
     repo = finalAttrs.pname;
-    rev = "v${finalAttrs.version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-0muL/vxYn4C9WlGgfsWO7hVsdCC2L5mtpdVvUaOK7f0=";
   };
 

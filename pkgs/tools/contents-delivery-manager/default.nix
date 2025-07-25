@@ -15,7 +15,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "switchbrew";
     repo = finalAttrs.pname;
-    rev = "v${finalAttrs.version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-9AzzHBtK/ZQGUAOB4kGUF9bcexUKbOaS8g/ZyCPsQjE=";
   };
 

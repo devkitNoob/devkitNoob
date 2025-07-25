@@ -16,7 +16,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "devkitNoob-mirrors";
     repo = finalAttrs.pname;
-    rev = "v${finalAttrs.version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-clt7IzFg4QOAgqhYiFqI9kD+Z4XOBGCEHgCQBiOtXuQ=";
   };
 
