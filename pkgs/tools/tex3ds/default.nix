@@ -7,7 +7,9 @@
   automake,
   pkg-config,
   freetype,
-  imagemagick
+  imagemagick,
+  librsvg,
+  liblqr1,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -30,6 +32,8 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
     freetype.dev
     imagemagick.dev
+    librsvg
+    liblqr1
   ];
 
   preConfigure = ''
