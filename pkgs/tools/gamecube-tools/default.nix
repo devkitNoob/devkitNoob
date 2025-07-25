@@ -13,14 +13,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   nativeBuildInputs = [autoreconfHook];
   buildInputs = [
-    (freeimage.overrideAttrs (old: {
-      meta =
-        old.meta
-        // {
-          # We know about these, but accept the risk
-          knownVulnerabilities = [];
-        };
-    }))
+    freeimage
     libGL
   ];
 

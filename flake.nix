@@ -39,6 +39,7 @@
     legacyPackages = forAllSystems (system: let
       nixpkgs = dontRecurseIntoAttrs (import inputs.nixpkgs {
         inherit system;
+        config.permittedInsecurePackages = [ "freeimage-3.18.0-unstable-2024-04-18" ];
         overlays = [
           self.overlays.default
         ];
