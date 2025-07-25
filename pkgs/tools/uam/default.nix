@@ -15,7 +15,7 @@ stdenv.mkDerivation (finalAttrs: {
   version = "1.1.0";
 
   src = fetchFromGitHub {
-    owner = "devkitPro";
+    owner = "devkitNoob-mirrors";
     repo = finalAttrs.pname;
     rev = "5a5afc2bae8b55409ab36ba45be63fcb73f68993";
     hash = "sha256-XwPZixiULM+QPRl9Z+0YMzFYOxznJCSTLg9wNkOswvk=";
@@ -37,7 +37,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   meta = {
     description = "Shader compiler for Nintendo Switch, targeting the deko3d API (based on mesa/nouveau sources";
-    homepage = "https://github.com/devkitPro/uam";
+    homepage = "https://github.com/devkitNoob-mirrors/uam";
     license = [
       lib.licenses.mit  # Everything in ${src}/mesa-imported/
       lib.licenses.zlib # Everything else

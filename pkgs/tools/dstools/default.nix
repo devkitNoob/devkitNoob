@@ -13,7 +13,7 @@ stdenv.mkDerivation (finalAttrs: {
   version = "1.3.3";
 
   src = fetchFromGitHub {
-    owner = "devkitPro";
+    owner = "devkitNoob-mirrors";
     repo = finalAttrs.pname;
     tag = "v${finalAttrs.version}";
     # rev = "807da5d15033790f9cd15b7cc1172a79cb5ac4bc";
@@ -33,7 +33,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   meta = {
     description = "";
-    homepage = "https://github.com/devkitPro/dstools";
+    homepage = "https://github.com/devkitNoob-mirrors/dstools";
     license = lib.licenses.gpl2Only;
     maintainers = with lib.maintainers; [ ];
     mainProgram = "dstools";

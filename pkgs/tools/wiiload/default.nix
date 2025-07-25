@@ -19,7 +19,7 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [ zlib ];
 
   src = fetchFromGitHub {
-    owner = "devkitPro";
+    owner = "devkitNoob-mirrors";
     repo = finalAttrs.pname;
     tag = "v${finalAttrs.version}";
     # rev = "c74abc7c2d318a39854ab90fdacb0097145fb541";

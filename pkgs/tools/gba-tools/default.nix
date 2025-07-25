@@ -12,7 +12,7 @@ stdenv.mkDerivation (finalAttrs: {
   version = "1.2.0";
 
   src = fetchFromGitHub {
-    owner = "devkitpro";
+    owner = "devkitNoob-mirrors";
     repo = finalAttrs.pname;
     tag = "v${finalAttrs.version}";
     # rev = "054d507f90d32784274b6cf7e03f1c43d02d7a57";
@@ -46,7 +46,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   meta = {
     description = "";
-    homepage = "https://github.com/devkitpro/gba-tools";
+    homepage = "https://github.com/devkitNoob-mirrors/gba-tools";
     license = lib.licenses.gpl3Only;
     maintainers = with lib.maintainers; [ ];
     mainProgram = "gba-tools";

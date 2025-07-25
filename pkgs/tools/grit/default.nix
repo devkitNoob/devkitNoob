@@ -14,7 +14,7 @@ stdenv.mkDerivation (finalAttrs: {
   version = "unstable-2023-10-02";
 
   src = fetchFromGitHub {
-    owner = "devkitPro";
+    owner = "devkitNoob-mirrors";
     repo = finalAttrs.pname;
     rev = "81fc1abd4803cd74a5f6c5674cf8cacff009f550";
     hash = "sha256-m4t6ezFtXS1v63u2ijeEMIuoJnjwInhHfdRKMshUoHU=";
@@ -33,7 +33,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   meta = {
     description = "Game Raster Image Transmogrifier";
-    homepage = "https://github.com/devkitPro/grit";
+    homepage = "https://github.com/devkitNoob-mirrors/grit";
     license = with lib.licenses; [ gpl2Only mit ];
       # Is ${src}/license-fi.txt = GPL2?
       # pkgs.freeimage.meta.license = "GPL" -- Assumming GPL2?

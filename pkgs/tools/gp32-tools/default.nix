@@ -14,7 +14,7 @@ stdenv.mkDerivation (finalAttrs: {
   version = "1.0.4";
 
   src = fetchFromGitHub {
-    owner = "devkitPro";
+    owner = "devkitNoob-mirrors";
     repo = finalAttrs.pname;
     tag = "v${finalAttrs.version}";
     hash = "sha256-o0iflFiFEVBwzb1ElkdM6ExY1CggE/uO/OwheNrfcEs=";
@@ -39,7 +39,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   meta = {
     description = "";
-    homepage = "https://github.com/devkitPro/gp32-tools";
+    homepage = "https://github.com/devkitNoob-mirrors/gp32-tools";
     license = lib.licenses.gpl3Only;
     maintainers = with lib.maintainers; [ ];
     mainProgram = "gp32-tools";

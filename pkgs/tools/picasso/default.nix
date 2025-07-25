@@ -12,7 +12,7 @@ stdenv.mkDerivation (finalAttrs: {
   version = "unstable-2023-10-11";
 
   src = fetchFromGitHub {
-    owner = "devkitPro";
+    owner = "devkitNoob-mirrors";
     repo = finalAttrs.pname;
     rev = "d522455ea59cd5cb9219c699b93eb7750039233c";
     hash = "sha256-H3L3oKwHeCVz5J1UsMh7EpWkM3zdAiKPJ8zaJrWvUWI=";
@@ -29,7 +29,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   meta = {
     description = "Homebrew PICA200 shader assembler";
-    homepage = "https://github.com/devkitPro/picasso";
+    homepage = "https://github.com/devkitNoob-mirrors/picasso";
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ ];
     mainProgram = "picasso";

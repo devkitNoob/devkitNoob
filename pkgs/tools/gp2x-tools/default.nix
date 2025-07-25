@@ -12,7 +12,7 @@ stdenv.mkDerivation (finalAttrs: {
   version = "1.0.1";
 
   src = fetchFromGitHub {
-    owner = "devkitPro";
+    owner = "devkitNoob-mirrors";
     repo = finalAttrs.pname;
     tag = "v${finalAttrs.version}";
     hash = "sha256-DNRxXpVUKw52UTDwu1oA9bV3ouX7JyPDNW2WCLAGm4I=";
@@ -29,7 +29,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   meta = {
     description = "";
-    homepage = "https://github.com/devkitPro/gp2x-tools";
+    homepage = "https://github.com/devkitNoob-mirrors/gp2x-tools";
     license = with lib.licenses; [ gpl3Only mit ];
     maintainers = with lib.maintainers; [ ];
     mainProgram = "gp2x-tools";

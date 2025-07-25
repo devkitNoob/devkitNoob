@@ -14,7 +14,7 @@ stdenv.mkDerivation (finalAttrs: {
   version = "1.3.1";
 
   src = fetchFromGitHub {
-    owner = "devkitPro";
+    owner = "devkitNoob-mirrors";
     repo = finalAttrs.pname;
     tag = "v${finalAttrs.version}";
     hash = "sha256-2JVtsyFi42sEEZf13Ei+tuLSD4u58IO3xj4bMZtq3zM=";
@@ -31,7 +31,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   meta = {
     description = "Tools for 3DS homebrew";
-    homepage = "https://github.com/devkitpro/3dstools";
+    homepage = "https://github.com/devkitNoob-mirrors/3dstools";
     platforms = lib.platforms.unix;
   };
 })

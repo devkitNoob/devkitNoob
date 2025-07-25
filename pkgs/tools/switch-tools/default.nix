@@ -15,7 +15,7 @@ stdenv.mkDerivation (finalAttrs: {
   version = "1.13.1";
 
   src = fetchFromGitHub {
-    owner = "switchbrew";
+    owner = "devkitNoob-mirrors";
     repo = finalAttrs.pname;
     tag = "v${finalAttrs.version}";
     # rev = "22756068dd0ed6ff9734c59cb4f99ebd3f62555b";
@@ -36,7 +36,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   meta = {
     description = "Helper tools for Switch homebrew development";
-    homepage = "https://github.com/switchbrew/switch-tools";
+    homepage = "https://github.com/devkitNoob-mirrors/switch-tools";
     license = lib.licenses.isc;
     maintainers = with lib.maintainers; [ ];
     mainProgram = "switch-tools";
