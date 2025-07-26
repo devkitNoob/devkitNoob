@@ -27,8 +27,6 @@ lib.makeScope newScope (
     dstools = callPackage ./tools/dstools {};
     gamecube-tools = callPackage ./tools/gamecube-tools {};
     gba-tools = callPackage ./tools/gba-tools {};
-      # TODO: Figure out proper fix for gbalzss
-      # So. Many. Errors.
     general-tools = callPackage ./tools/general-tools {};
     gp2x-tools = callPackage ./tools/gp2x-tools {};
     gp32-tools = callPackage ./tools/gp32-tools {};

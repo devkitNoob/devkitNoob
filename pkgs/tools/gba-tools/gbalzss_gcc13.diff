@@ -1,0 +1,12 @@
+diff --git a/src/gbalzss.cpp b/src/gbalzss.cpp
+index 1ba658c..9632eaf 100644
+--- a/src/gbalzss.cpp
++++ b/src/gbalzss.cpp
+@@ -31,6 +31,7 @@
+ #include <getopt.h>
+ #include <libgen.h>
+ #include <cstddef>
++#include <cstdint>
+ 
+ namespace
+ {

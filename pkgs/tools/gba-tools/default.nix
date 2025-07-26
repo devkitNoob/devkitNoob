@@ -21,28 +21,16 @@ stdenv.mkDerivation (finalAttrs: {
 
   NIX_CFLAGS_COMPILE = [ "-std=c++11" ];
 
+  patches = [ ./gbalzss_gcc13.diff ];
+
   nativeBuildInputs = [
     autoconf
     automake
   ];
 
-  # TODO: Reinstate gbalzss.
-  # Need to remove references to gbalzss since otherwise, the build fails
-  # very early on.
-  # Likely needs patch to fix build.
-  preConfigure = ''
-    rm src/gbalzss.cpp
-    substituteInPlace Makefile.am \
-      --replace-fail "gbalzss_SOURCES" "# gbalzss_SOURCES" \
-      --replace-fail " gbalzss" ""
-    ./autogen.sh
-  '';
-
-  /*
   preConfigure = ''
     ./autogen.sh
   '';
-  */
 
   meta = {
     description = "";
