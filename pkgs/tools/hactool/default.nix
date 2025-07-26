@@ -8,7 +8,7 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "hactool";
-  version = "unstable-2023-10-10";
+  version = "1.4.0-unstable-2023-10-10";
 
   src = fetchFromGitHub {
     owner = "SciresM";
