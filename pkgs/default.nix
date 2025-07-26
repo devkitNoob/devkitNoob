@@ -31,13 +31,6 @@ lib.makeScope newScope (
     gp2x-tools = callPackage ./tools/gp2x-tools {};
     gp32-tools = callPackage ./tools/gp32-tools {};
     grit = callPackage ./tools/grit {};
-      # TODO: Figure out proper fix.
-      /*
-        configure.ac:18: error: possibly undefined macro: AC_PROG_LIBTOOL
-              If this token and others are legitimate, please use m4_pattern_allow.
-              See the Autoconf documentation.
-        autoreconf: error: /nix/store/kz7dz3kz0w2hzdq1rixh5qr90w3sn3gj-autoconf-2.72/bin/autoconf failed with exit status: 1
-      */
     hactool = callPackage ./tools/hactool {};
     mmutil = callPackage ./tools/mmutil {};
     ndstool = callPackage ./tools/ndstool {};
