@@ -22,7 +22,6 @@ lib.makeScope newScope (
       # Requires "switch/result.h" - Adding noobkitA64 to nativeBuildInputs
       # does not appear to fix this issue.
     _3dslink = callPackage ./tools/3dslink {};
-    _3dstool = callPackage ./tools/3dstool {};
     _3dstools = callPackage ./tools/3dstools {};
     dstools = callPackage ./tools/dstools {};
     gamecube-tools = callPackage ./tools/gamecube-tools {};
