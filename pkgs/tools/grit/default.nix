@@ -6,7 +6,8 @@
   autoconf,
   automake,
   freeimage,
-  pkg-config
+  pkg-config,
+  libtool
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -17,7 +18,7 @@ stdenv.mkDerivation (finalAttrs: {
     owner = "devkitNoob-mirrors";
     repo = finalAttrs.pname;
     tag = "v${finalAttrs.version}";
-    # rev = "81fc1abd4803cd74a5f6c5674cf8cacff009f550";
+    # rev = "a41d260a807e1bf90523e8f445a13e5fa5a72381";
     hash = "sha256-dIF59akcVaRH5/y7ZQ2FlGIOD8q3RS4bt1k5cEVqtUw=";
   };
 
@@ -26,6 +27,7 @@ stdenv.mkDerivation (finalAttrs: {
     automake
     freeimage
     pkg-config
+    libtool
   ];
 
   preConfigure = ''
