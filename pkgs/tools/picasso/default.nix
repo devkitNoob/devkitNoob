@@ -9,13 +9,14 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "picasso";
-  version = "unstable-2023-10-11";
+  version = "2.7.1";
 
   src = fetchFromGitHub {
     owner = "devkitNoob-mirrors";
     repo = finalAttrs.pname;
-    rev = "d522455ea59cd5cb9219c699b93eb7750039233c";
-    hash = "sha256-H3L3oKwHeCVz5J1UsMh7EpWkM3zdAiKPJ8zaJrWvUWI=";
+    tag = "v${finalAttrs.version}";
+    # rev = "82cf7d95fe904bab54a69c723a9e21a06677f290"
+    hash = "sha256-njnjutgcNekhvIPBDzBxGxvugEzxt/dkfon/dTCAH5c=";
   };
 
   nativeBuildInputs = [

@@ -11,13 +11,14 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "grit";
-  version = "unstable-2023-10-02";
+  version = "0.8.17";
 
   src = fetchFromGitHub {
     owner = "devkitNoob-mirrors";
     repo = finalAttrs.pname;
-    rev = "81fc1abd4803cd74a5f6c5674cf8cacff009f550";
-    hash = "sha256-m4t6ezFtXS1v63u2ijeEMIuoJnjwInhHfdRKMshUoHU=";
+    tag = "v${finalAttrs.version}";
+    # rev = "81fc1abd4803cd74a5f6c5674cf8cacff009f550";
+    hash = "sha256-dIF59akcVaRH5/y7ZQ2FlGIOD8q3RS4bt1k5cEVqtUw=";
   };
 
   nativeBuildInputs = [

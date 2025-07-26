@@ -14,13 +14,14 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "tex3ds";
-  version = "unstable-2024-10-13";
+  version = "2.3.0";
 
   src = fetchFromGitHub {
     owner = "devkitNoob-mirrors";
     repo = finalAttrs.pname;
-    rev = "6d5e8681027d59a13fba95b8ee223e324125704e";
-    hash = "sha256-MptKZRq3SxRrcTz4RBmUw9LJ/yRFeqSzTkDii/z0wQc=";
+    tag = "v${finalAttrs.version}";
+    # rev = "37220c696e873812df41af62d1db0b20c66661fe";
+    hash = "sha256-hb8nncZ3AwJq6oDyvas9d9rw0RHPth1q1Chqqd8gwf4=";
   };
 
   nativeBuildInputs = [
