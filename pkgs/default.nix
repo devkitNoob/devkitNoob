@@ -46,13 +46,6 @@ lib.makeScope newScope (
     picasso = callPackage ./tools/picasso {};
     switch-tools = callPackage ./tools/switch-tools {};
     tex3ds = callPackage ./tools/tex3ds {};
-      # TODO: Figure out proper linking fix.
-      /*
-        /nix/store/...-binutils-2.44/bin/ld: cannot find -llqr-1: No such file or directory
-        /nix/store/...-binutils-2.44/bin/ld: cannot find -lXext: No such file or directory
-        /nix/store/...-binutils-2.44/bin/ld: cannot find -lrsvg-2: No such file or directory
-        collect2: error: ld returned 1 exit status
-      */
     uam = callPackage ./tools/uam {};
     wiiload = callPackage ./tools/wiiload {};
     wut-tools = callPackage ./tools/wut-tools {};
