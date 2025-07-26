@@ -38,8 +38,6 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   preConfigure = ''
-    export MAGICK_INC=${imagemagick.dev}/include/ImageMagick
-    export MAGICK_LIB=${imagemagick.out}/lib
     ./autogen.sh
   '';
 
