@@ -61,7 +61,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   patchPhase = ''
     runHook prePatch
-    '${stdenv.shell}' '${./apply_patches.sh}'
+    '${stdenv.shell}' -- '${./apply_patches.sh}' '${./patches}'
     runHook postPatch
   '';
   buildPhase = ''
