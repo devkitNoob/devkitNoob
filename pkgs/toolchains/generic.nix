@@ -46,6 +46,10 @@ stdenv.mkDerivation (finalAttrs: {
       inherit (srcs.newlib) hash;
     })
   ];
+  preUnpack = ''
+    mkdir -p work
+    cd work
+  '';
   sourceRoot = ".";
 
   nativeBuildInputs = [texinfo perl];
