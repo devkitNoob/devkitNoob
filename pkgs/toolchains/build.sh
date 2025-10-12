@@ -19,6 +19,9 @@ OLD_CC="$CC"
 OLD_CXX="$CXX"
 CROSS_GCC_PARAMS=""
 CROSS_PARAMS=""
+EXTRA_BINUTILS_PARAMS=(
+	"--enable-deterministic-archives"
+)
 EXTRA_GCC_PARAMS=(
 	"--with-bugurl=https://github.com/devkitNoob/devkitNoob/issues"
 	"--with-pkgversion=$DKN_NAME release $DKN_VERSION"

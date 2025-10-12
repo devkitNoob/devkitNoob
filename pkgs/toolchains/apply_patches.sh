@@ -20,4 +20,5 @@ tryPatch "newlib-$NEWLIB_VER"
 
 # shellcheck disable=2016
 sed -i "$BUILDSCRIPTDIR/$basedir/scripts/build-gcc.sh" \
-	-e 's|$EXTRA_GCC_PARAMS|"${EXTRA_GCC_PARAMS[@]}"|'
+	-e 's|$EXTRA_GCC_PARAMS|"${EXTRA_GCC_PARAMS[@]}"|' \
+	-e '\|binutils-$BINUTILS_VER/configure|a "${EXTRA_BINUTILS_PARAMS[@]}" '\\\\
