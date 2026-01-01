@@ -2,6 +2,9 @@
 
 A nixpkgs overlay for homebrew development.
 
+Also check out [noobkitShell](https://codeberg.org/novenary/noobkitShell),
+a compatibility layer to use upstream binaries on NixOS.
+
 ## Acknowledgements
 
 This project is dedicated to leeches who enjoy the work of the free software
