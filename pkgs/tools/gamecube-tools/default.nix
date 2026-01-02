@@ -13,21 +13,14 @@ stdenv.mkDerivation (finalAttrs: {
 
   nativeBuildInputs = [autoreconfHook];
   buildInputs = [
-    (freeimage.overrideAttrs (old: {
-      meta =
-        old.meta
-        // {
-          # We know about these, but accept the risk
-          knownVulnerabilities = [];
-        };
-    }))
+    freeimage
     libGL
   ];
 
   src = fetchFromGitHub {
     owner = "extremscorner";
     repo = "gamecube-tools";
-    #rev = "v${finalAttrs.version}";
+    # tag = "v${finalAttrs.version}";
     rev = "fe67d8bf6e8c2c7f447accf94612767d55122532";
     hash = "sha256-n7w0o0E6VCDqohkAS7obDkTIQG7TpiinpJsktuLU9H4=";
   };
