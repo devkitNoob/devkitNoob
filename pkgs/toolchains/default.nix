@@ -56,19 +56,19 @@ in {
 
   noobkitA64 = mkToolchain rec {
     pname = "noobkitA64";
-    version = "28";
+    version = "29";
     srcs = {
       buildscripts = {
         rev = "devkitA64_r${version}";
-        hash = "sha256-bfZdiP/+FJqy49hqB/QJvChTkL2H5FB9Q8wrjLeWJJo=";
+        hash = "sha256-jSUB4+If/6dZdLtEYtyZus8PxBTyArmBotUHYh8rzHM=";
       };
       binutils = {
-        version = "2.44";
-        hash = "sha256-9mOQpmH6oRfQD6suec8tydCXtCzClr8/hnfR57RS3Do=";
+        version = "2.45.1";
+        hash = "sha256-hg2t3skIXLQBEnkTb8itKetTPpRG11JK9/UX3RjwAiQ=";
       };
       gcc = {
-        version = "15.1.0";
-        hash = "sha256-4rCewhZg8B/s/7cV4BICZSFpQ/A40OSKmGhxPlTwbOo=";
+        version = "15.2.0";
+        hash = "sha256-Q4/ZloJrDIJIWinaA6ctcdbjVBqD7HAt9Ccfb+Al0k4=";
       };
       newlib = {
         version = "4.5.0.20241231";
