@@ -9,7 +9,7 @@ in {
     version = "67";
     srcs = {
       buildscripts = {
-        rev = "devkitARM_r${version}";
+        tag = "devkitARM_r${version}";
         hash = "sha256-jVR/lcZNcnQ61r71f+3bOeyw1RrCuUXQDHxxdQkYZ2E=";
       };
       binutils = {
@@ -34,7 +34,7 @@ in {
     version = "48";
     srcs = {
       buildscripts = {
-        rev = "devkitPPC_r${version}";
+        tag = "devkitPPC_r${version}";
         hash = "sha256-Cnqx6h2tRNlfk1hFq7pBEKsdRZ6WBKMJf2Gj9XeDlU4=";
       };
       binutils = {
@@ -59,7 +59,7 @@ in {
     version = "29";
     srcs = {
       buildscripts = {
-        rev = "devkitA64_r${version}";
+        tag = "devkitA64_r${version}";
         hash = "sha256-jSUB4+If/6dZdLtEYtyZus8PxBTyArmBotUHYh8rzHM=";
       };
       binutils = {

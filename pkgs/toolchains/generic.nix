@@ -31,7 +31,7 @@ stdenv.mkDerivation (finalAttrs: {
       name = repo;
       owner = "devkitNoob-mirrors";
       repo = "buildscripts";
-      inherit (srcs.buildscripts) rev hash;
+      inherit (srcs.buildscripts) tag hash;
     })
     (fetchurl {
       url = "mirror://gnu/binutils/binutils-${srcs.binutils.version}.tar.bz2";
