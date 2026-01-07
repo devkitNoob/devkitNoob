@@ -4,7 +4,7 @@
   stdenv,
   fetchFromGitHub,
   autoreconfHook,
-  freeimage,
+  freeimage-arse,
   libGL,
 }:
 stdenv.mkDerivation (finalAttrs: {
@@ -13,14 +13,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   nativeBuildInputs = [autoreconfHook];
   buildInputs = [
-    (freeimage.overrideAttrs (old: {
-      meta =
-        old.meta
-        // {
-          # We know about these, but accept the risk
-          knownVulnerabilities = [];
-        };
-    }))
+    freeimage-arse.i_know_what_im_doing_please_fuck_me_up
     libGL
   ];
 
